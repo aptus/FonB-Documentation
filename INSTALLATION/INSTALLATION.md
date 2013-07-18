@@ -149,8 +149,7 @@ The [download link](http://www.aptus.com/download.html) will provide you `phoneb
 `tar xvzf phoneb.tgz`
 <a name="create-phonebcfg"/>
 ####5.2. Setting phoneb.cfg file
-FonB executable is found in `/phoneb/bin/` directory. In order to run FonB, you need to create two files, i.e. phoneb.cfg and users.cfg. These files can be created in any of these directories:
-`/etc/phoneb/phoneb.cfg`  OR `/usr/local/phoneb/etc/phoneb.cfg`
+FonB executable is found in `/phoneb/bin/` directory. In order to run FonB, you need to create two files, i.e. phoneb.cfg and users.cfg. These files can be created in any of the directories `/etc/phoneb/phoneb.cfg`  or `/usr/local/phoneb/etc/phoneb.cfg`
 Please note that phoneb.cfg and users.cfg should be in a same directory. For the sake of example, we will be creating these two files in `/etc/phoneb/`. you need to create this directory by `mkdir /etc/phoneb/`
 #####5.2.1. Sample phoneb.cfg
 Here is the sample phoneb.cfg file:
