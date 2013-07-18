@@ -170,6 +170,8 @@ ListenPort= 8080                      ;Listen Port for Web Server. If you are us
 AsteriskMonitorPath= /var/spool/asterisk/monitor             ;Path for Recording Files Folder
 LameExec= /usr/bin/lame                                      ;Path for wav to mp3 converter for Browser
                                                              ;Presentation
+;PhpCgiPath = "/usr/bin/php-cgi"                             ;Custom path for PHP-CGI Folder
+
 
 
 [AMI]                                 ;Delete this section if you don't want to use Active Calls feature
