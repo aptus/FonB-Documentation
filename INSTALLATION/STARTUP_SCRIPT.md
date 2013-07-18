@@ -68,4 +68,4 @@ restart)
         exit 1
 esac
 ```
-Error messages can be seen in `/var/log/messages`.
+Don't forget to perform `chmod +x /etc/init.d/phoneb`. Error messages can be seen in `/var/log/messages`.
