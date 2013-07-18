@@ -68,8 +68,14 @@ ___
 FonB can be installed on any standard x86/x86_64 based hardware system. Operating System and Browser specific requirements are as under:
 <a name="osrequirements"/>
 ####2.1. OS Requirements
+FonB has currently been tested on Ubuntu 12.04, 12.10, 13.04, CentOS 6.2, 6.3, 6.4.
+
+The application is expected to run on other versions too however, it will be confirmed once tested.
+
 <a name="asteriskversion"/>
 ####2.2. Asterisk Version Support
+FonB has been tested on Asterisk 1.8, 10 and 11. It may work on other versions however it will be confirmed once tested.
+
 <a name="browserrequirement"/>
 ####2.3. Browser Requirement
 Mozilla Firefox 6, Mozilla Firefox 5, Google Chrome 14, Safari 5, Opera 11
