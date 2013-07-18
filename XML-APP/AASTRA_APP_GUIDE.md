@@ -8,7 +8,7 @@
 
 5. Enter the path to your FonB XML File in the **Value** field, for instance, in our case it's `http://10.0.8.6/xml/en/Aastra/menu.xml`.
 
-6. Check all of checkboxes represented **Idle**, **Connected**, **Incoming**, **Outgoing**.
+6. Check all of the checkboxes representing **Idle**, **Connected**, **Incoming**, **Outgoing**.
 
 7. **Save Settings** and close the tab.
 
