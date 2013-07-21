@@ -159,7 +159,7 @@ FonB executable is found in `/phoneb/bin/` directory. In order to run FonB, you 
 Please note that phoneb.cfg and users.cfg should be in a same directory. For the sake of example, we will be creating these two files in `/etc/phoneb/`. you need to create this directory by `mkdir /etc/phoneb/`
 #####5.2.1. Sample phoneb.cfg
 Here is the sample phoneb.cfg file:
-Password
+
 ```
 [PhoneB]
 BaseDir= /usr/local/PhoneB            ;Directory Location for FonB
