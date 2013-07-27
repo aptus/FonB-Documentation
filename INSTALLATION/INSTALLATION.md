@@ -90,6 +90,7 @@ FonB requires these packages to be installed and work properly:
 * MySQLServer
 * MySQLClient
 * PHP-XML
+* PHP Compilation (For Elastix Users)
 
 If you are installing FonB on servers running Asterisk forks like FreePBX, Elastix or PIAF, you most probably will have PHP, PHP-MySQL, MySQLServer & MySQLClient already installed.
 <a name="php-installation"/>
@@ -138,6 +139,9 @@ For CentOS based systems
 
 For Debian based systems
 `apt-get install php-xml`
+
+####3.6. PHP Compilation (for Elastix Users)
+Please refer to [this](#https://github.com/aptus/FonB-Documentation/blob/master/MISC/TIPS.md#phpcompilation) section to see the steps you need to take for PHP Compilation. This step is mandatory only for Elastix Users.
 
 ___
 <a name="downloadingfonb"/>
