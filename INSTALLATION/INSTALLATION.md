@@ -25,6 +25,8 @@
    3.5. [MySQL Client Installation](#mysql-client-installation)
 
    3.6. [PHP-XML Installation](#php-xml-installation)
+   
+   3.7. [PHP Compilation (for Elastix Users)](#php-compilation)
 
 4. [Downloading FonB](#downloadingfonb)
 
@@ -140,6 +142,7 @@ For CentOS based systems
 For Debian based systems
 `apt-get install php-xml`
 
+<a name="php-compilation" />
 ####3.6. PHP Compilation (for Elastix Users)
 Please refer to [this](#https://github.com/aptus/FonB-Documentation/blob/master/MISC/TIPS.md#phpcompilation) section to see the steps you need to take for PHP Compilation. This step is mandatory only for Elastix Users.
 
