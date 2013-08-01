@@ -58,7 +58,7 @@ tar xzf php-5.4.17.tar.gz
 Install the required dependencies for PHP Compilation using command:
 
 ```
-yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison
+yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison openssl-devel
 ```
 
 ####4. ./configure:
@@ -66,7 +66,7 @@ yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison
 Navigate to the decompressed directory for PHP using `cd php-5.4.17` and perform configure step using:
 
 ```
-./configure --prefix=/usr/local/php
+./configure --prefix=/usr/local/php --with-mysql --with-openssl
 ```
 
 ####5. Compilation & Installation:
