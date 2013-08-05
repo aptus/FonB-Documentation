@@ -386,3 +386,4 @@ Reload your Asterisk once done.
 <a name="login"/>
 ###6. Logging In
 Now that everything has been done, you can safely login on hostname:[port] (localhost:8080 or 10.0.8.200:8080 in our case). Login using credentials you specified in `users.cfg`.
+View [Tips Page](https://github.com/aptus/FonB-Documentation/blob/master/MISC/TIPS.md) to rectify any possible error while using FonB.
