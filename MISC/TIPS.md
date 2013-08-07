@@ -97,7 +97,20 @@ Use this solution for the problem where you are using any version of MySQL older
 Warning: [obfuscated](): mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file in /usr/local/PhoneB/php/classes/preload.inc on line 0 Cannot connect a database
 ```
 
-To resolve this issue, you need to re-create your passwords with new authentication. Login to your MySQL using:
+To resolve this issue, you need to re-create your passwords with new authentication. First, locate `my.cnf` file in your machine using:
+
+```
+whereis my.cnf
+```
+Usually it's supposed to be in `/etc/my.cnf`. Open the file using `vim /etc/my.conf` and try to search for parameter `old_passwords=1`. Either change it to `old_passwords=0` or comment it out by putting # int he beginning. Save and close file by `:x`.
+
+Now restart MySQL Daemon:
+
+```
+service mysqld restart
+```
+
+Login to your MySQL using:
 
 ```
 mysql -u root -p
