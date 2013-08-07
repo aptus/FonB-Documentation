@@ -9,7 +9,7 @@ To make it happen, you must have root privileges. Being root, you will have to c
 # description: phoneb daemon
 # processname: phoneb
 
-DAEMON_PATH="/usr/local/PhoneB/bin"                     ;Path Location of phoneb executable
+DAEMON_PATH="/usr/local/PhoneB/bin"                     #Path Location of phoneb executable
 
 DAEMON="phoneb"
 
@@ -21,8 +21,8 @@ SCRIPTNAME="/etc/init.d/$NAME"
 case "$1" in
 start)
         printf "%-50s" "Starting $NAME..."
-        PID=`$DAEMON_PATH/$DAEMON  >> /var/log/messages 2>&1 & echo $!`     ;for Ubuntu 11.04 or above, use
-                                                                            ;/var/log/syslog instead
+        PID=`$DAEMON_PATH/$DAEMON  >> /var/log/messages 2>&1 & echo $!`     #for Ubuntu 11.04 or above, use
+                                                                            #/var/log/syslog instead
         echo "$DAEMON > /dev/null 2>&1 & echo $!"
         echo "Saving PID" $PID " to " $PIDFILE
         if [ -z $PID ]; then
