@@ -185,18 +185,18 @@ LameExec= /usr/bin/lame                                      ;Path for wav to mp
 ManagerHost= localhost                ;Hostname/IP of your Asterisk Server
 ManagerPort= 5038                     ;AMI Port
 ManagerUsername= someusername         ;Username as per /etc/asterisk/manager.conf      
-ManagerPassword= somepassword         ;Password as per /etc/asterisk/manager.conf
+ManagerPassword= somepassword         ;Password as per /etc/asterisk/manager.conf (Special Characters not supported)
 
 [MysqlCdr]
 Table= cdr
 Username= someusername                ;Username as per /etc/asterisk/cdr_mysql.conf
-Password= somepassword                ;Password as per /etc/asterisk/cdr_mysql.conf
+Password= somepassword                ;Password as per /etc/asterisk/cdr_mysql.conf (Special Characters not supported)
 Database= asteriskcdrdb               ;Database name as per /etc/asterisk/cdr_mysql.conf
 Hostname= localhost                   ;Hotname/IP of your MySQL Database Server
 
 [MysqlFonB]
 Username= someusername                ;Username
-Password= somepassword                ;Password 
+Password= somepassword                ;Password  (Special Characters not supported)
 Database= phonebook                   ;Database Name
 Hostname= localhost                   ;Hotname/IP of your MySQL Database Server
 
@@ -214,7 +214,7 @@ Extension=3000                         ;Extension
 Terminal=SIP/3000                      ;Extension type as defined in Extensions.conf
 Context=from-internal                  ;Extension context
 Name=max                               ;Name of the user
-Password=3333                          ;Password for Weblogin
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, easier to use in IP Phones)
 Language=en                            ;Language
 DID=4547733                            ;Internal DID for Asterisk CLID Lookup 
 Department=Development                 ;Department Name
@@ -260,14 +260,14 @@ permit=127.0.0.1/255.255.255.0
 ```
 <a name="create-fonb-mysql"/>
 ####5.6. Create FonB MySQL Database
-FonB uses MySQL Database to store all of its information. At this stage, you need to create a database to be used by FonB.
+FonB uses MySQL Database to store all of its information. At this stage, you need to create a database to be used by FonB. Please note that Special Characters are not supported in current release of FonB (due to certain restrictions in PHP Configuration Syntax).
 
 ```
 mysql -u root -p
 Enter password: yourmysqlpassword
 mysql> CREATE DATABASE phonebook;
 mysql> CREATE USER 'username'@'localhost' IDENTIFIED BY 'userpassword';
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION; 
 ```
 
 <a name="configure-ioncube"/>
