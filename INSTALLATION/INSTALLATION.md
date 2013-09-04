@@ -165,7 +165,7 @@ The [download link](http://www.aptus.com/download.html) will provide you `phoneb
 FonB executable is found in `/phoneb/bin/` directory. In order to run FonB, you need to create two files, i.e. phoneb.cfg and users.cfg. These files can be created in any of the directories `/etc/phoneb/phoneb.cfg`  or `/usr/local/phoneb/etc/phoneb.cfg`
 Please note that phoneb.cfg and users.cfg should be in a same directory. For the sake of example, we will be creating these two files in `/etc/phoneb/`. you need to create this directory by `mkdir /etc/phoneb/`
 #####5.2.1. Sample phoneb.cfg
-Here is the sample phoneb.cfg file. You can create yours using `vim /etc/phoneb/phoneb.cfg` and then by pressing `a` and then pasting the sample text with necessary chages. Once done, press `Esc` and then `:wq` to save the file and exit:
+Here is the sample phoneb.cfg file. You can create yours using `vim /etc/phoneb/phoneb.cfg` and then by pressing `a` and then pasting the sample text with necessary chages. Once done, press `Esc` and then `:wq` to save the file and hit `Enter` and exit:
 
 ```
 [PhoneB]
@@ -203,7 +203,7 @@ Hostname= localhost                   ;Hotname/IP of your MySQL Database Server
 ```
 <a name="create-userscfg"/>
 ####5.3. Create users.cfg File
-The configuration file `users.cfg` enables Asterisk users to use Aptus FonB. All the user extensions specified here must be the part of Asterisk extensions.conf file.
+The configuration file `users.cfg` enables Asterisk users to use Aptus FonB. All the user extensions specified here must be the part of Asterisk extensions.conf file. You can create your file by using command `vim /etc/phoneb/users.cgf`, press `a` and then by pasting the given sample file with necessary changes. Once done, press `Escape` button followed by `:wq` and then hit `Enter`.
 
 #####5.3.1. Sample users.cfg 
 Here is the sample users.cfg file:
