@@ -155,7 +155,7 @@ Make sure your OS and Asterisk version is specified in Section 2. If it's not, j
 ___
 <a name="configuration"/>
 ###5. Installation & Configuration
-The [download link](http://www.aptus.com/download.html) will provide you `phoneb.tar` file. Download it and place it in the directory you want to install FonB in. In our case, we will be installing PhoneB in `/usr/local` directory, so place the downloaded file here. From here, follow the given steps:
+The [download link](http://www.aptus.com/download.html) will provide you `phoneb.tar` file. Download it and place it in the directory you want to install FonB in. In our case, we will be installing PhoneB in `/usr/local` directory, so place the downloaded file here (using `wget http://aptus.com/download/fonb/phoneb_1.0.1.tgz`). From here, follow the given steps:
 
 <a name="decompress-tar"/>
 ####5.1. Decompress the tar files:
