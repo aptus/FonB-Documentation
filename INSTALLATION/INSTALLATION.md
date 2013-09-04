@@ -159,7 +159,7 @@ The [download link](http://www.aptus.com/download.html) will provide you `phoneb
 
 <a name="decompress-tar"/>
 ####5.1. Decompress the tar files:
-`tar xvzf phoneb.tgz`
+`tar xvzf phoneb_1.0.1.tgz`
 <a name="create-phonebcfg"/>
 ####5.2. Setting phoneb.cfg file
 FonB executable is found in `/phoneb/bin/` directory. In order to run FonB, you need to create two files, i.e. phoneb.cfg and users.cfg. These files can be created in any of the directories `/etc/phoneb/phoneb.cfg`  or `/usr/local/phoneb/etc/phoneb.cfg`
