@@ -229,7 +229,6 @@ Extension=3001
 Terminal=SIP/3001
 Context=from-internal
 Name=Garcia
-Mobile=0134982392
 Password=abc123
 spy=Development,HR                     ;Listen to specific departments
 ```
