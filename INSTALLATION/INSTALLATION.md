@@ -395,7 +395,7 @@ FonB Command Line Interface Switches are used to use FonB Command with certain p
 
 Usage:
 
-      phoneb [Options]
+      phoneb [Options] <value>
 
 Valid Options:
 
