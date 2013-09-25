@@ -51,6 +51,8 @@
    5.9. [Modify extensions_custom.conf To Enable Active Calls](#modify-extensionscustom)
 
 6. [Logging In](#login)
+
+7. [FonB CLI Switches](#cli-switches)
 ___
 
 <a name="gettingstarted"/>
