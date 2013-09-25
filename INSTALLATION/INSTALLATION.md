@@ -386,3 +386,38 @@ Reload your Asterisk once done.
 ###6. Logging In
 Now that everything has been done, you can safely login on hostname:[port] (localhost:8080 or 10.0.8.200:8080 in our case). Login using credentials you specified in `users.cfg`.
 View [Tips Page](https://github.com/aptus/FonB-Documentation/blob/master/MISC/TIPS.md) to rectify any possible error while using FonB.
+
+
+<a name="cli-switches"/>
+###7. FonB CLI Switches
+FonB Command Line Interface Switches are used to use FonB Command with certain predefined options. These switches are explained as under:
+
+Usage:
+    phoneb [Options]
+
+Valid Options:
+    --help  Print a brief help message and exits
+
+    --version
+            Display the version and exits
+
+    --activate XXXX-XXXX-XXXX-XXXX
+            License this server using the provided activation-key 
+            (this operation requires an Internet connection with
+            our activation server)
+
+    --force-activate XXXX-XXXX-XXXX-XXXX
+            Continue with the FailedRevoke activation of your key.
+	    This will lock your activation key to work only with 
+	    this server. Do revoke your key next time before 
+	    formatting. Otherwise, the frequent use of this option,
+	    will blacklist your activation-key.
+
+    --revoke
+            Revoke the current license to re-activate the used
+            activation-key with another server (this operation
+            requires an Internet connection with our activation
+            server)
+
+    --print-mac-address
+            Print the first MAC address used on your server
