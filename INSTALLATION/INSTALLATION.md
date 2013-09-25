@@ -392,7 +392,7 @@ View [Tips Page](https://github.com/aptus/FonB-Documentation/blob/master/MISC/TI
 
 <a name="cli-switches"/>
 ###7. FonB CLI Switches
-FonB Command Line Interface Switches are used to use FonB Command with certain predefined options. These switches are explained as under:
+Starting from FonB v1.0.2, FonB Command Line Interface Switches are used to use FonB Command with certain predefined options. These switches are explained as under:
 
 
 Usage:
