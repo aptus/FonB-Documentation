@@ -392,10 +392,13 @@ View [Tips Page](https://github.com/aptus/FonB-Documentation/blob/master/MISC/TI
 ###7. FonB CLI Switches
 FonB Command Line Interface Switches are used to use FonB Command with certain predefined options. These switches are explained as under:
 
+
 Usage:
-    phoneb [Options]
+
+      phoneb [Options]
 
 Valid Options:
+
     --help  Print a brief help message and exits
 
     --version
@@ -421,3 +424,4 @@ Valid Options:
 
     --print-mac-address
             Print the first MAC address used on your server
+``
