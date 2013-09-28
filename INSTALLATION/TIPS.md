@@ -81,6 +81,12 @@ make
 make install
 ```
 
+If you face any error like `command not found` do install YUM Package for Development Tools using the command as under. It will install `make` and other useful packages:
+
+`
+yum groupinstall "Development Tools"
+`
+
 ####6. Configure phone.cfg:
 
 Edit `phoneb.cfg` and add the following:
