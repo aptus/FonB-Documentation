@@ -60,7 +60,7 @@ tar xzf php-5.4.17.tar.gz
 Install the required dependencies for PHP Compilation using command:
 
 ```
-yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison openssl-devel curl libcurl libcurl-devel
+yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison openssl-devel curl libcurl libcurl-devel curl-dev
 ```
 
 ####4. ./configure:
