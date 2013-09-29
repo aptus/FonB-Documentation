@@ -37,9 +37,9 @@ If you are running any Web based GUI for Asterisk, like Elystix, PIAF or FreePBX
 
 
 <a name="phpcompilation"/>
-###PHP Compilation for Elastix Users
+###PHP Compilation for Elastix & AsteriskNOW Users
 
-Elastix users will need to compile PHP in order to run FonB. The steps to compile are as under:
+Elastix & AsteriskNOW users will need to compile PHP in order to run FonB. The steps to compile are as under:
 
 ####1. Download Source:
 
@@ -60,7 +60,7 @@ tar xzf php-5.4.17.tar.gz
 Install the required dependencies for PHP Compilation using command:
 
 ```
-yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison openssl-devel
+yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison openssl-devel curl libcurl libcurl-devel
 ```
 
 ####4. ./configure:
@@ -68,7 +68,7 @@ yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison open
 Navigate to the decompressed directory for PHP using `cd php-5.4.17` and perform configure step using:
 
 ```
-./configure --prefix=/usr/local/php --with-mysql --with-openssl
+./configure --prefix=/usr/local/php --with-mysql --with-openssl --with-curl
 ```
 
 ####5. Compilation & Installation:
