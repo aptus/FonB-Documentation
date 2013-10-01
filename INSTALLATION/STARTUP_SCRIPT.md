@@ -21,15 +21,24 @@ SCRIPTNAME="/etc/init.d/$NAME"
 case "$1" in
 start)
         printf "%-50s" "Starting $NAME..."
-        PID=`$DAEMON_PATH/$DAEMON  >> /var/log/messages 2>&1 & echo $!`     #for Ubuntu 11.04 or above, use
-                                                                            #/var/log/syslog instead
-        echo "$DAEMON > /dev/null 2>&1 & echo $!"
-        echo "Saving PID" $PID " to " $PIDFILE
-        if [ -z $PID ]; then
-            printf "%s\n" "Fail"
+        if [ -f $PIDFILE ]; then
+            PID=`cat $PIDFILE`
+            if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+                printf "%s\n" "Process dead but pidfile exists. Use /etc/init.d/phoneb restart"
+            else
+                echo "Process already running pid: $PID"
+            fi
         else
-            echo $PID > $PIDFILE
-            printf "%s\n" "Ok"
+                PID=`$DAEMON_PATH/$DAEMON  >> /var/log/messages 2>&1 & echo $!`     #for Ubuntu 11.04 or above, use
+                                                                            #/var/log/syslog instead
+                #echo "$DAEMON > /dev/null 2>&1 & echo $!"
+                if [ -z $PID ]; then
+                        printf "%s\n" "Fail"
+                else
+                        echo $PID > $PIDFILE
+                        printf "%s\n" "Ok"
+                        #echo "Saving PID" $PID " to " $PIDFILE
+                fi
         fi
 ;;
 status)
@@ -67,5 +76,6 @@ restart)
         echo "Usage: $0 {status|start|stop|restart}"
         exit 1
 esac
+
 ```
 Don't forget to perform `chmod +x /etc/init.d/phoneb`. Error messages can be seen in `/var/log/messages`.
