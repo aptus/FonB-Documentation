@@ -205,7 +205,7 @@ Hostname= localhost                   ;Hotname/IP of your MySQL Database Server
 ```
 <a name="create-userscfg"/>
 ####5.3. Create users.cfg File
-The configuration file `users.cfg` enables Asterisk users to use Aptus FonB. All the user extensions specified here must be the part of Asterisk extensions.conf file. You can create your file by using command `vim /etc/phoneb/users.cgf`, press `a` and then by pasting the given sample file with necessary changes. Once done, press `Escape` button followed by `:wq` and then hit `Enter`.
+The configuration file `users.cfg` enables Asterisk users to use Aptus FonB. All the user extensions specified here must be the part of Asterisk extensions.conf file. You can create your file by using command `vim /etc/phoneb/users.cfg`, press `a` and then by pasting the given sample file with necessary changes. Once done, press `Escape` button followed by `:wq` and then hit `Enter`.
 
 #####5.3.1. Sample users.cfg 
 Here is the sample users.cfg file:
