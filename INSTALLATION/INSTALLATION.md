@@ -296,7 +296,7 @@ Copyright (c) 1997-2010 The PHP Group
 Zend Engine v2.3.0, Copyright (c) 1998-2010 Zend Technologies
     with Zend Guard Loader v3.3, Copyright (c) 1998-2010, by Zend Technologies
 ```
-You need to commit a couple of changes now based on your System Architecture (32 or 64 bit) and the PHP version you are running (5.3.3 in this case). Edit `/usr/local/phoneb/php/php.ini`:
+You need to commit a couple of changes now based on your System Architecture (32 or 64 bit) and the PHP version you are running (5.3.3 in this case). Edit `/usr/local/PhoneB/php/php.ini`:
 
 ```
 date.timezone = "Asia/Dubai"                ;Your time zone, important to correctly display Call History
