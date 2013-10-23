@@ -79,3 +79,11 @@ esac
 
 ```
 Don't forget to perform `chmod +x /etc/init.d/phoneb`. Error messages can be seen in `/var/log/messages`.
+
+In order to start FonB Service at startup, edit `/etc/rc.local` using `vim /etc/rc.local` and add this additional line to run FonB at startup:
+
+``
+/usr/local/PhoneB/bin/phoneb
+``
+
+Press `Esc` and then `:wq` followed by `Enter` to save and exit. Now your script will run as soon as your CentOS boots.
