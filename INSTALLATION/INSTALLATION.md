@@ -69,7 +69,7 @@ User is supposed to inform FonB about these files in 3 configuration files, i.e.
 ___
 <a name="systemrequirements"/>
 ### 2. System Requirements
-FonB can be installed on any standard x86/x86_64 based hardware system. Operating System and Browser specific requirements are as under:
+FonB can be installed on any standard x86/x86_64 based hardware system. We recommend system memory to be more than 512MB specially if you are using Elastix or AsteriskNOW which requires PHP Compilation. Operating System and Browser specific requirements are as under:
 <a name="osrequirements"/>
 ####2.1. OS Requirements
 FonB has currently been tested on Ubuntu 12.04, 12.10, 13.04, CentOS 6.2, 6.3, 6.4.
