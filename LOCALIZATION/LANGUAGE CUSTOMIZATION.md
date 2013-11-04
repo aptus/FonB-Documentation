@@ -2,7 +2,7 @@
 ### Table of Contents
 1. [Translate Default Template to Your Language](#translation)
 
-2. [Saving Language File As Per ISO Language Code](#change-name)
+2. [Saving Language File As Per ISO Language Code](#save-file)
 
 3. [Change Front End Drop Down Menu](#change-menu)
 ___
@@ -188,4 +188,39 @@ The Default Template (with empty translated strings) is as under. You will eithe
 ```
 <a name="change-name"/>
 ###2. Saving Language File As Per ISO Language Code
-Once you have translated your file, you need to save it as per corresponding ISO 639-1 Standard Language Code. For instance, you have translated your file to German, you will have to save it as `de.json` in directory `/usr/local/PhoneB/i18n/`. Same goes for other languages.
+Once you have translated your file, you need to save it as per corresponding [ISO 639-1 Standard Language Code](http://http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). For instance, you have translated your file to German, you will have to save it as `de.json` in directory `/usr/local/PhoneB/i18n/`. Same goes for other languages.
+
+
+<a name="change-menu" />
+3. [Change Front End Drop Down Menu](#change-menu)
+Open using settings file using `vim` file:
+
+```
+/usr/local/PhoneB/templates/default/settings.html
+```
+Please open the same file on corresponding path if you are using different BaseDir. Once opened, search for string `general_language` in `vim` by typing `/general_language` followed by `Enter`. It will take you to the corresponding string in `index.html`. Here, you will see HTML equivalent of Drop Down options like this:
+
+```
+ <select id="general_language">
+                          <option value="en">{{t "English"}}</option>
+                          
+                          <option value="ar">{{t "ﺎﻠﻋﺮﺒﻳﺓ"}}</option>
+                          
+                          <option value="cn">{{t "中国的"}}</option>
+                          
+                          <option value="ur">{{t "ﺍﺭﺩﻭ"}}</option>
+```
+Add your language ISO 639-1 Standard Code in Option Value to be picked from JSON files and the name of your language you want to display after that. Thus, if you want to add German Language option (assuming you have already added `de.json` in previous step), youw will have to add another line in this code block so that it becomes:
+
+```
+ <select id="general_language">
+                          <option value="en">{{t "English"}}</option>
+                          
+                          <option value="ar">{{t "ﺎﻠﻋﺮﺒﻳﺓ"}}</option>
+                          
+                          <option value="cn">{{t "中国的"}}</option>
+                          
+                          <option value="ur">{{t "ﺍﺭﺩﻭ"}}</option>
+                          
+                          <option value="de">{{Deutsch}}</option>
+```
