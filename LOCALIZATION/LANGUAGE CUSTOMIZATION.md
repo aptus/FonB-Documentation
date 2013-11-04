@@ -2,9 +2,7 @@
 ### Table of Contents
 1. [Translate Default Template to Your Language](#translation)
 
-1. [Create Language File](#create-lang-file)
-
-2. [Rename Language File As Per ISO Language Code](#change-name)
+2. [Saving Language File As Per ISO Language Code](#change-name)
 
 3. [Change Front End Drop Down Menu](#change-menu)
 ___
@@ -14,7 +12,7 @@ ___
 ###1. Translate Default Template to Your Language
 Localization is supported in Aptus FonB v1.0.5 or higher. You will have to perform some minor steps to translate and use  FonB in your language. Stock FonB v1.0.5 is released with 5 languages, i.e. English, French, Arabic, Traditional Chinese, Hebrew and Urdu. We are currently working on more languages and will be updating the Documentation for any new translation.
 
-The Default Template (with empty translated strings) is as under:
+The Default Template (with empty translated strings) is as under. You will either have to monitor the same Localization Directory for newest language files or populate it with your own translation:
 
 ```
 {
@@ -188,3 +186,6 @@ The Default Template (with empty translated strings) is as under:
 }
 
 ```
+<a name="change-name"/>
+###2. Saving Language File As Per ISO Language Code
+Once you have translated your file, you need to save it as per corresponding ISO 639-1 Standard Language Code. For instance, you have translated your file to German, you will have to save it as `de.json` in directory `/usr/local/PhoneB/i18n/`. Same goes for other languages.
