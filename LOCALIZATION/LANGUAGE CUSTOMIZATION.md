@@ -16,7 +16,7 @@ Localization is supported in Aptus FonB v1.0.5 or higher. You will have to perfo
 
 The Default Template (with empty translated strings) is as under:
 
-``
+```
 {
 	"Settings":"",
 	"Your mobile number is used for transferring calls." :"",
