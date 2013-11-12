@@ -177,7 +177,7 @@ UsersConfFile= /etc/phoneb/users.cfg  ;Directory Location for FonB Configuration
 ListenPort= 8080                      ;Listen Port for Web Server. If you are using FreePBX or Elastix
                                       ;use 8080
 AsteriskMonitorPath= /var/spool/asterisk/monitor             ;Path for Recording Files Folder
-LameExec= /usr/bin/lame                                      ;Path for wav to mp3 converter for Browser
+LameExec= /usr/local/PhoneB/bin/lame                         ;Path for wav to mp3 converter for Browser
                                                              ;Presentation
 ;PhpCgiPath = "/usr/bin/php-cgi"                             ;Custom path for PHP-CGI Folder (use with Elastix, needs PHP Compilation)
 
