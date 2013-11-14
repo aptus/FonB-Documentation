@@ -1,4 +1,4 @@
-What's New in Release 1.0.5:
+New in Release 1.0.5:
 
 - Localization Support.
 - Direct Call icons on Contacts Page.
