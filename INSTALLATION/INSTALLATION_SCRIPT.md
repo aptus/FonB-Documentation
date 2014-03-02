@@ -1020,7 +1020,6 @@ if __name__ == "__main__":
 		log(os.path.join(cmd_args.compile_php, "bin", "php-cgi"))
 	log('\n'.join(Errors))
 	log_file.close()
-	
 	```
 	
 Now press `Esc` followed by `:wq` to save this file and exit. You can now run the script using `python fonb-install-script.py -i`.
