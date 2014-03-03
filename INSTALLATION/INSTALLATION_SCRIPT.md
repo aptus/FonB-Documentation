@@ -1,10 +1,15 @@
+##Introduction
 Starting from v1.1.0, FonB is now supported by an installation script to automate most of the steps involved in FonB Installation. While the documentation for manual install remains the same, this guide will show how to use the installation script.
 
 The operation of the script is fairly easy, however, please remember that you should have your MySQL credentials with you, as these are the only login name password pairs that you need to provide manually. Rest (other then few prompts) Installation Script handles by its own.
 
-First step is to create a new file using `vim /usr/local/src/fonb-install-script.py`. Once you open this file, paste the following code as it is:
+First step is to create a new file using `vim /usr/local/src/fonb-install-script.py`.
 
-```
+
+##The Code
+Once you open the aforementioned file, paste the following code as it is:
+
+```python
 #!/usr/bin/env python
 import sys, urllib2, tarfile, zipfile, os, getpass, stat, StringIO, platform, shutil, glob, re
 from optparse import OptionParser
@@ -1021,4 +1026,27 @@ if __name__ == "__main__":
 	log('\n'.join(Errors))
 	log_file.close()
 
-```
+```        
+
+##Options/Switches
+ 
+-h, --help show this help message and exit
+
+-i, --install Download and install FonB
+
+-s /path/to/PhoneB/bin, --init=/path/to/PhoneB/bin Outputs init.d script. This option expects path to bin folder of phoneb installation to be passed as argument
+
+-p php-cgi, --php=php-cgi Validates php requirements for FonB. Expects php-cgi path as argument.
+
+-c /path/where/php/will/be/compiled, --prefix=/path/where/php/will/be/compiled Downloads and compiles php with FonB specific requirements.
+
+-v, --version Show installation script version
+
+-f, --freepbx Install Freepbx module
+
+##Requirements
+
+* Python 2.x (Tested on Python 2.4, 2.5, 2.6 and 2.7)
+* CentOS (Freepbx/Elastix/Stock Asterisks) (Recommended)
+* Should run on any linux installation with yum. Installation will go smooth in other linux distroes too, but you will have to resolve dependencies on your own)
+* Internet connectivity
