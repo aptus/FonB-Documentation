@@ -238,6 +238,8 @@ spy=Development,HR                     ;Listen to specific departments
 ####5.4. Activate License
 You need to run `/usr/local/PhoneB/bin/phoneb` executable once phoneb.cfg and users.cfg are configured properly. If everything is good, you will be prompted for Activation License. If you have purchased FonB, you must enter the license key you have been provided on your registered email. In case of free 30 days demo, you just need to press enter. You must have an Internet Connection at this stage. If in case you come across any error like `-bash: ./phoneb: /lib/ld-linux.so.2: bad ELF interpreter: No such file or directory`, install `glibc` libraries. See [this link](https://github.com/aptus/FonB-Documentation/blob/master/INSTALLATION/TIPS.md#x86_64-glibc-error) for further details.
 
+p.s: You might have to repeat this step for 2-3 times. This is a minor bug that will be fixed soon.
+
 ```
 [root@localhost phoneb]# /usr/local/PhoneB/bin/phoneb 
 2013/07/12 10:13:39 phoneb.cfg located @  /etc/phoneb/phoneb.cfg
