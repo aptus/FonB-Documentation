@@ -221,7 +221,7 @@ Language=en                            ;Language
 DID=4547733                            ;Internal DID for Asterisk CLID Lookup 
 Department=Development                 ;Department Name
 Spy=all                                ;Listen to all Other Calls
-Company=aptus                          ;Company Name
+Company=aptus                          ;Company Name, important for Multi Tenant Environment
 ;Type=deleted                          ;Will be used when extension is deleted and you want to keep 
                                        ;the data without login
 
