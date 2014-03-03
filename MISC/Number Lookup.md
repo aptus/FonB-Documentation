@@ -1,6 +1,6 @@
 ##Number Lookup using FonB
 
-FonB provides many useful features and Number Lookup is one of them. The goal of this feature is to provide a name to all numbers available in any of the Phonebook FonB supports (Google, Highrise, MyContacts, iPhone & Asterisk Extensions). It's more or less same as CallerID Superfacta however, it comes with FonB (without any extra installation steps).
+The goal of this feature is to provide a name to all incoming calls from source available in any of the Phonebook FonB supports (Google, Highrise, MyContacts, iPhone & Asterisk Extensions). It's more or less same as CallerID Superfacta however, it comes with FonB (without any extra installation steps).
 
 ##Configuration
 
