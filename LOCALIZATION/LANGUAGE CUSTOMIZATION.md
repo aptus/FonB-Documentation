@@ -188,7 +188,7 @@ The Default Template (with empty translated strings) is as under. You will eithe
 ```
 <a name="change-name"/>
 ###2. Saving Language File As Per ISO Language Code
-Once you have translated your file, you need to save it as per corresponding [ISO 639-1 Standard Language Code](http://http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). For instance, you have translated your file to German, you will have to save it as `de.json` in directory `/usr/local/PhoneB/i18n/`. Same goes for other languages.
+Once you have translated your file, you need to save it as per corresponding [ISO 639-1 Standard Language Code](http://http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). For instance, you have translated your file to German, you will have to save it as `de.json` in directory `/usr/local/PhoneB/i18n/`. Same goes for other languages. You can always check if your JSON file is valid or not at http://jsonlint.com/ .
 
 
 <a name="change-menu" />
