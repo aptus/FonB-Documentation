@@ -101,9 +101,9 @@ class Install(object):
 			log("If for some reason, phoneb doesn't show up on browser, try executing %s manually to debug errors." % os.path.join(self.INSTALL_PATH,"bin", "phoneb"))
 			log("You can restart phoneb by running 'service phoneb restart'")
 			log("To setup passwords for extensions edit '/etc/phoneb/users.cfg'")
-			log("To activate phoneb with licenses use '%s'" % os.path.join(self.INSTALL_PATH, "bin", "./phoneb --activate"))
+			log("To activate phoneb with licenses use '%s'" % os.path.join(self.INSTALL_PATH, "bin", "./phoneb --activate \"your license key here\""))
 			log("To report bugs or to find further documentation visit http://aptus.com")
-			log("Installation messages have been logged to fonb-setup.log. If problems occured during installation include this file in your bug report.")
+			log("Installation messages have been logged to /var/log/fonb-setup.log. If problems occured during installation include this file in your bug report.")
 		else:
 			log("Error occured in starting PhoneB. Try running this script with root privilleges or setup init.d script manually.")
 
@@ -112,7 +112,7 @@ class Install(object):
 		config_parser.read("/etc/phoneb/phoneb.cfg")
 		if not (config_parser.has_section("Demo_License_FonB_V1") or config_parser.has_section("License_FonB_V1") or config_parser.has_section("License_FonB_Mobile_V1") or config_parser.has_section("License_FonB_Highrise_V1") ):
 			log("Attempting to activate phoneb")
-			os.system(os.path.join(self.INSTALL_PATH, "bin", "./phoneb --activate"))
+			os.system(os.path.join(self.INSTALL_PATH, "bin", "./phoneb --activate Demo_License_FonB_V1"))
 
 	def create_init_script(self):
 		"""
@@ -169,37 +169,44 @@ class Install(object):
 		global Errors
 		config = FonbConfigParser()
 		log("Creating phoneb.cfg file")
-		config.read("/etc/phoneb/phoneb.cfg")
+		try:
+			config.read("/etc/phoneb/phoneb.cfg")
+		except:
+			pass
 		cdr_setup = CDRSettings()
+		mysql_settings = MySQLSettings()
 		data = {
 			"PhoneB" : {
 				"BaseDir" : self.INSTALL_PATH,
 				"UsersConfFile" : os.path.join(config_path, "users.cfg"),
 				"ListenPort" : raw_input("FonB Server Port[%s]:" % self.PORT) or self.PORT,
 				"LameExec" : LameCheck(self.INSTALL_PATH).get_path(),
-				"Debug" : "0",
+				"Debug" : "1",
 				"PhpCgiPath" : self.PHP_CGI_PATH,
 				"AsteriskMonitorPath" : "/var/spool/asterisk/monitor",
+				"RedirectPath" : "fonb",
 			},
 			"WebServer" : {
-				"Debug" : "0"
+				"Debug" : "1"
 			},
 			"WebSocket": {
-				"Debug" : "0",
-				"EnableAmiUpdates" : "0",
+				"Debug" : "1",
+				"EnableAmiUpdates" : "1",
 				"EnableSummaryUpdates" : "1",
-				"EnableHangupUpdates" : "0",
-				"EnableFeedbackUpdates" : "0",
-				"EnableErrorUpdates" : "0",
-				"EnableClientActionUpdates" : "0"
+				"EnableHangupUpdates" : "1",
+				"EnableFeedbackUpdates" : "1",
+				"EnableErrorUpdates" : "1",
+				"EnableClientActionUpdates" : "1"
 			},
-			"MysqlFonB": MySQLSettings().get(),
+			"MysqlFonB": mysql_settings.get(),
 			"AMI" : AMISettings().get(),
 			"MysqlCdr" : cdr_setup.get(),
 		}
 		cdr_columns_added = False
 		if data["MysqlFonB"]["Username"] == "root":
 			cdr_columns_added = cdr_setup.add_highrise_columns(data["MysqlFonB"]["Username"], data["MysqlFonB"]["Password"], data["MysqlCdr"]["Database"])
+			log("fixing old passwords error")
+			mysql_settings.fixOldPasswords(data["MysqlCdr"]["Username"], data["MysqlCdr"]["Password"])
 		if not cdr_columns_added:
 			cdr_columns_added = cdr_setup.add_highrise_columns(data["MysqlCdr"]["Username"], data["MysqlCdr"]["Password"], data["MysqlCdr"]["Database"])		
 			if not cdr_columns_added:
@@ -253,26 +260,27 @@ class Install(object):
 						pass
 					if terminal and context:
 						log("Found extension: %s" % section)
-						config.add_section(section)
-						config.set(section, "Extension", section)
-						config.set(section, "Terminal", terminal)
-						config.set(section, "Context", context)
-						callerid = ""
-						try:
-							callerid = exisiting_extensions_parser.get(section, "callerid")
-						except:
-							pass
-						if callerid:
-							config.set(section, "Name", callerid.split()[:-1][0])
-						else:
-							config.set(section, "Name", "")
-						config.set(section, ";Password", "set the password, only 5 users can have password in a demo license.")
-						config.set(section, "Mobile", "")
-						config.set(section, "BaseDir", self.INSTALL_PATH)
-						config.set(section, "Language", "en")
-						config.set(section, "Department", "")
-						config.set(section, "Company", "")
-						config.set(section, "Spy", "all")
+						if not config.has_section(section):
+							config.add_section(section)
+							config.set(section, "Extension", section)
+							config.set(section, "Terminal", terminal)
+							config.set(section, "Context", context)
+							callerid = ""
+							try:
+								callerid = exisiting_extensions_parser.get(section, "callerid")
+							except:
+								pass
+							if callerid:
+								config.set(section, "Name", callerid.split()[:-1][0])
+							else:
+								config.set(section, "Name", "")
+							config.set(section, ";Password", "set the password, only 5 users can have password in a demo license.")
+							config.set(section, "Mobile", "")
+							config.set(section, "BaseDir", self.INSTALL_PATH)
+							config.set(section, "Language", "en")
+							config.set(section, "Department", "")
+							config.set(section, "Company", "")
+							config.set(section, "Spy", "all")
 			log("Create a user. (At least one user with valid password needed to login)")
 			extension = raw_input("Extension:")
 			user = {
@@ -467,6 +475,50 @@ class MySQLSettings(object):
 			log("Couldn't verify MySQL credentials. We hope they were alright.")
 		return data
 
+	def fixOldPasswords(self, cdr_uname, cdr_password):
+		config_parser = FonbConfigParser()
+		file_read = config_parser.read("/etc/my.cnf")
+		old_passwords = False
+		if file_read:
+			try:
+				if self.haveOldPasswordProblem(cdr_uname):
+					log("Problem found. Trying to fix")
+					config_parser.set("mysqld", "old_passwords", "0")
+					old_passwords =  True
+			except:
+				pass
+			if old_passwords and os.access("/etc/my.cnf", os.W_OK):
+				mysql_conf_file = open("/etc/my.cnf", "w")
+				config_parser.write(mysql_conf_file)
+				mysql_conf_file.close()
+				os.system("service mysqld restart")
+				query = 'UPDATE mysql.user SET Password = PASSWORD("%s") WHERE user = "%s";' % (self.db.password, self.db.username)
+				if cdr_uname != self.db.username and cdr_password:
+					query = query + 'UPDATE mysql.user SET Password = PASSWORD("%s") WHERE user = "%s";' % (cdr_password, cdr_uname)
+				fixed = self.db.query(query) == 0 and self.db.query("FLUSH PRIVILEGES;") == 0
+				if fixed:
+					log("Old password error fixed")
+				else:
+					global Errors
+					Errors.append("[ ERROR ]: Old passwords set in /etc/my.cnf check https://github.com/aptus/FonB-Documentation/blob/master/INSTALLATION/TIPS.md#mysqlautherror for details on how to fix it. Query: %s" % query)
+					log("Error occured in fixing old passwords error")
+					config_parser.set("mysqld", "old_passwords", "1")
+					mysql_conf_file = open("/etc/my.cnf", "w")
+					config_parser.write(mysql_conf_file)
+					mysql_conf_file.close()
+			elif old_passwords == False:
+				log("No old passwords problem found.")
+			else:
+				log("Write permissions denied in /etc/my.cnf")
+
+	def haveOldPasswordProblem(self, cdr_uname):
+		query = 'SELECT LENGTH(password) from mysql.user where user IN("root", "%s");' % cdr_uname
+		response = self.db.result(query).read()
+		if "16" in response:
+			return True
+		else:
+			return False
+
 	def create_db(self, database_name):
 		global Errors
 		log("Woohoo! got root access to MySQL. Trying to create fonb database.")
@@ -552,7 +604,7 @@ class IoncubeSettings(object):
 		if output == "FonB Error":
 			log("Ioncube succesfully setup.")
 		else:
-			log("Couldn't setup ioncube loader.")
+			log("Couldn't setup ioncube loader. Command used to verify: %s" % command)
 			Errors.append("[ ERROR ]: Couldn't setup ioncube manually. Please set it up manually in %s." % (os.path.join(php_path, "php.ini")))
 
 	def get_php_version(self, php_cgi_path="php-cgi"):
@@ -608,7 +660,7 @@ class LameCheck(object):
 	
 	def compile(self):
 		global Errors
-		return_code = os.system("cd /usr/src && wget http://sourceforge.net/projects/lame/files/lame/3.98.4/lame-3.98.4.tar.gz && tar -xf lame-3.98.4.tar.gz && cd lame-3.98.4 && ./configure && make && make install")
+		return_code = os.system("cd /usr/src && wget http://aptus.com/install/lame-3.98.4.tar.gz && tar -xf lame-3.98.4.tar.gz && cd lame-3.98.4 && ./configure && make && make install")
 		if return_code != 0:
 			error = "[ ERROR ]: Couldn't compile lame properly. Call recording wont work without lame."
 			log(error)
@@ -714,8 +766,7 @@ def init_script(demon_path):
 	Outputs init script
 	"""
 	demon_path = demon_path.rstrip('/')
-	return """
-#!/bin/bash
+	return """#!/bin/bash
 # phoneb daemon
 # chkconfig: 345 20 80
 # description: phoneb daemon
@@ -732,61 +783,61 @@ SCRIPTNAME="/etc/init.d/$NAME"
 
 case "$1" in
 start)
-		printf "%%-50s" "Starting $NAME..."
-		if [ -f $PIDFILE ]; then
-			PID=`cat $PIDFILE`
-			if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
-				printf "%%s\n" "Process dead but pidfile exists. Use /etc/init.d/phoneb restart"
-			else
-				echo "Process already running pid: $PID"
-			fi
-		else
-				PID=`$DAEMON_PATH/$DAEMON  >> /var/log/messages 2>&1 & echo $!`     #for Ubuntu 11.04 or above, use
-																			#/var/log/syslog instead
-				#echo "$DAEMON > /dev/null 2>&1 & echo $!"
-				if [ -z $PID ]; then
-						printf "%%s\n" "Fail"
-				else
-						echo $PID > $PIDFILE
-						printf "%%s\n" "Ok"
-						#echo "Saving PID" $PID " to " $PIDFILE
-				fi
-		fi
+        printf "%%-50s" "Starting $NAME..."
+        if [ -f $PIDFILE ]; then
+            PID=`cat $PIDFILE`
+            if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+                printf "%%s\\n" "Process dead but pidfile exists. Use /etc/init.d/phoneb restart"
+            else
+                echo "Process already running pid: $PID"
+            fi
+        else
+                PID=`$DAEMON_PATH/$DAEMON  >> /var/log/messages 2>&1 & echo $!`     #for Ubuntu 11.04 or above, use
+                                                                            #/var/log/syslog instead
+                #echo "$DAEMON > /dev/null 2>&1 & echo $!"
+                if [ -z $PID ]; then
+                        printf "%%s\\n" "Fail"
+                else
+                        echo $PID > $PIDFILE
+                        printf "%%s\\n" "Ok"
+                        #echo "Saving PID" $PID " to " $PIDFILE
+                fi
+        fi
 ;;
 status)
-		printf "%%-50s" "Checking $NAME..."
-		if [ -f $PIDFILE ]; then
-			PID=`cat $PIDFILE`
-			if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
-				printf "%%s\n" "Process dead but pidfile exists"
-			else
-				echo "Running"
-			fi
-		else
-			printf "%%s\n" "Service not running"
-		fi
+        printf "%%-50s" "Checking $NAME..."
+        if [ -f $PIDFILE ]; then
+            PID=`cat $PIDFILE`
+            if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+                printf "%%s\\n" "Process dead but pidfile exists"
+            else
+                echo "Running"
+            fi
+        else
+            printf "%%s\\n" "Service not running"
+        fi
 ;;
 stop)
-		printf "%%-50s" "Stopping $NAME"
-			PID=`cat $PIDFILE`
-			cd $DAEMON_PATH
-		if [ -f $PIDFILE ]; then
-			kill -HUP $PID
-			printf "%%s\n" "Ok"
-			rm -f $PIDFILE
-		else
-			printf "%%s\n" "pidfile not found"
-		fi
+        printf "%%-50s" "Stopping $NAME"
+            PID=`cat $PIDFILE`
+            cd $DAEMON_PATH
+        if [ -f $PIDFILE ]; then
+            kill -HUP $PID
+            printf "%%s\\n" "Ok"
+            rm -f $PIDFILE
+        else
+            printf "%%s\\n" "pidfile not found"
+        fi
 ;;
 
 restart)
-		$0 stop
-		$0 start
+        $0 stop
+        $0 start
 ;;
 
 *)
-		echo "Usage: $0 {status|start|stop|restart}"
-		exit 1
+        echo "Usage: $0 {status|start|stop|restart}"
+        exit 1
 esac
 """	% demon_path
 #####################end of init_script############
@@ -798,14 +849,14 @@ def php_requirements(php_cgi_path):
 		"curl",
 		"date",
 		"dom",
-		"json",
 		"libxml",
 		"mysql",
 		"openssl",
 		"SimpleXML",
 		"xml",
 		"xmlreader",
-		"xmlwriter"
+		"xmlwriter",
+		"json",
 	]
 	missing_modules = [module for module in required_modules if module not in php_modules]
 	if len(missing_modules) > 0:
@@ -849,7 +900,7 @@ def compile_php(path):
 	"""
 	Download and compile php with FonB specific requirements
 	"""
-	url = "http://downloads.php.net/stas/php-5.4.23.tar.gz"
+	url = "http://aptus.com/install/php-5.4.23.tar.gz"
 	log("Downloading php..")
 	download(url, "/tmp/php.tar.gz")
 	tar = tarfile.open("/tmp/php.tar.gz", 'r:gz')
@@ -975,7 +1026,7 @@ class Uninstall(object):
 			os.remove("/etc/init.d/phoneb")
 			log("init script removed")
 
-log_file = open("fonb-setup.log", "w")
+log_file = open("/var/log/fonb-setup.log", "w")
 
 def log(message):
 	print(message)
