@@ -3,7 +3,7 @@ Starting from v1.1.0, FonB is now supported by an installation script to automat
 
 The operation of the script is fairly easy, however, please remember that you should have your MySQL credentials with you, as these are the only login name password pairs that you need to provide manually. Rest (other then few prompts) Installation Script handles by its own.
 
-First step is to download the Python Script from Aptus Server to your installation machine. You can do it using `wget http://aptus.com/install/fonb-setup.py`
+First step is to download the Python Script from Aptus Server to your installation machine. You can do it using `wget www.aptus.com/install/fonb-setup.py`
 
 Once you have downloaded the file, you can run it using:
 
