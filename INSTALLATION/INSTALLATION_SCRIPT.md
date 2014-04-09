@@ -33,3 +33,15 @@ python fonb-install.py -i
 * CentOS (Freepbx/Elastix/Stock Asterisks) (Recommended)
 * Should run on any linux installation with yum. Installation will go smooth in other linux distroes too, but you will have to resolve dependencies on your own)
 * Internet connectivity
+
+##Script Prompts
+While installation, the script prompts for some parameters from user. It provides default values enclosed in paranthesys []. While we recommend leaving default values as is by pressing Enter on such prompts, you may go ahead with custom parameters of your own choice provided that you know what you are doing.
+
+Here is the list of these prompts:
+
+* php-cgi path: CGI is an interface which tells the webserver how to pass data back and forth to and from an application. You can refer to the CGI specification (at http://hoohoo.ncsa.illinois.edu/cgi) for details.
+* FonB Server Port[8080]: Server port where you want to run FonB Web Frontend.
+* Mysql username[root]: Username for your Asterisk MySQL CDR Database. Please check /etc/asterisk/mysql_cdr.conf if you don't know about root credentials on MySQL.
+* Password: Password for your Asterisk MySQL CDR Database.
+* Database Name[fonb]: Database name for your Asterisk MySQL CDR. In most FreePBX based systems it's asteriskcdrdb. Check /etc/asterisk/mysql_cdr.conf
+* Hostname[localhost]: Hostname of machine running MySQL.
