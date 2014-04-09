@@ -216,23 +216,46 @@ Extension=3000                         ;Extension
 Terminal=SIP/3000                      ;Extension type as defined in Extensions.conf
 Context=from-internal                  ;Extension context
 Name=max                               ;Name of the user
-Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, easier to use in IP Phones)
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, 	easier to use in IP Phones)
 Language=en                            ;Language
 DID=4547733                            ;Internal DID for Asterisk CLID Lookup 
 Department=Development                 ;Department Name
 Spy=all                                ;Listen to all Other Calls
 Company=aptus                          ;Company Name, important for Multi Tenant Environment
-;Type=deleted                          ;Will be used when extension is deleted and you want to keep 
-                                       ;the data without login
+;Type=deleted                          ;Will be used when extension is deleted and you want to keep the data without login
+Queue=601,602,603		       ;Queue Groups this extension is part of
+RingGroups=501,502,503		       ;Ring Groups this extension is part of
 
 
 [3001]
-Extension=3001
-Terminal=SIP/3001
-Context=from-internal
-Name=Garcia
-Password=abc123
-spy=Development,HR                     ;Listen to specific departments
+Extension=3001                         ;Extension
+Terminal=SIP/3001                      ;Extension type as defined in Extensions.conf
+Context=from-internal                  ;Extension context
+Name=sam                               ;Name of the user
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, easier to use in IP Phones)
+Language=en                            ;Language
+DID=4547744                            ;Internal DID for Asterisk CLID Lookup 
+Department=Development                 ;Department Name
+Spy=all                                ;Listen to all Other Calls
+Company=aptus                          ;Company Name, important for Multi Tenant Environment
+;Type=deleted                          ;Will be used when extension is deleted and you want to keep the data without login
+Queue=601			       ;Queue Groups this extension is part of
+RingGroups=501			       ;Ring Groups this extension is part of
+
+[601]				       ;Queue Group as defined in FreePBX/Asterisk
+Name = FirstQueue		       ;Name of the Queue Group
+Extension = 601			       ;Extension you need to dial to call this Queue Group
+Type = queue			       ;Type of this context
+Department = Sales		       ;Department this Queue Group belongs to
+
+[600]
+Name = Tech Room		       ;Name of this Ring Group
+Extension = 600			       ;Extension you need to dial to call this ring group
+Department = Technical		       ;Department this Ring Group is part of
+Type = ringgroup		       ;Type of this context
+
+                                       
+                                       
 ```
 <a name="activate-license"/>
 ####5.4. Activate License
