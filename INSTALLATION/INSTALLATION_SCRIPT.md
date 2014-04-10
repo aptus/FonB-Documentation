@@ -109,15 +109,9 @@ Here is the list of these prompts:
 #### 4.2. Options/Switches
  
 **-h** or **--help** show this help message and exit
-
 **-i** or **--install** Download and install FonB
-
 **-s /path/to/PhoneB/bin** or **--init=/path/to/PhoneB/bin** Outputs init.d script. This option expects path to bin folder of phoneb installation to be passed as argument
-
 **-p php-cgi** or **--php=php-cgi** Validates php requirements for FonB. Expects php-cgi path as argument.
-
 **-c /path/where/php/will/be/compiled** or **--prefix=/path/where/php/will/be/compiled** Downloads and compiles php with FonB specific requirements.
-
 **-v** or **--version** Show installation script version
-
 **-f** or **--freepbx** Install Freepbx module
