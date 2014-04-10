@@ -45,3 +45,14 @@ Here is the list of these prompts:
 * Password: Password for your Asterisk MySQL CDR Database.
 * Database Name[fonb]: Database name for your Asterisk MySQL CDR. In most FreePBX based systems it's asteriskcdrdb. Check /etc/asterisk/mysql_cdr.conf
 * Hostname[localhost]: Hostname of machine running MySQL.
+* Extension: One of the currently configured extension to login with after successful installation.
+* Terminal[SIP/3002]: Terminal details (we recommend using defaults until and unless you’re aware of the type).
+* Context[from-internal]: Context of the terminal (we recommend using defaults until and unless you’re aware of the type).
+* Name: Name you want to give it to this extension in FonB.
+* Mobile: Mobile Number you want to use in FonB for mobile callback feature (you must have a working trunk to use this feature).
+* Password: Password for this user to login to FonB Web, Mobile & IP Phone XML App Interface.
+* BaseDir[/usr/local/src/PhoneB]: Base Directory, used for advanced configuration. Leave it default.
+* Department[Development]: Department of the user you are creating.
+* Spy[all]: Specify the departments or extensions you want this user to allow monitoring.
+* Company: Organization Name.
+
