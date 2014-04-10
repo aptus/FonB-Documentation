@@ -120,7 +120,7 @@ Here is the list of these prompts:
 * **-v** or **--version** Show installation script version
 * **-f** or **--freepbx** Install Freepbx module
 
-<a name="#users-cfg"/>
+<a name="users-cfg"/>
 ### 5. Creating/Editing Users
 Let's assume that you already have users 3000 (Max), 3001 (Hess), 3002 (Frank) and 3004 (Tim) defined in your Asterisk dialplan. You also have Queue Group 601, 602 and 603 and Ring Groups 501, 502 and 503. You now want to allow these users and ring groups/Queues as a part of your FonB Setup. For this task, you will have to update your `/etc/phoneb/users.cfg` file to something as pasted below. We have assumed that 3000 and 3001 belongs to Technical Department whereas 3002 and 3003 are part of sales department. For other details, we believe that users.cfg file below is self explanatory.
 
