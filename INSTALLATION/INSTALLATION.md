@@ -120,7 +120,7 @@ Here is the list of these prompts:
 
 <a name="#users.cfg"/>
 ### 5. Creating/Editing Users
-Let's assume that you already have users 3000 (Max), 3001 (Hess), 3002 (Frank) and 3004 (Tim) defined in your Asterisk dialplan. You also have Queue Group 601, 602 and 603 and Ring Groups 501, 502 and 503. You will have to update your `/etc/phoneb/users.cfg` file to make it look like file pasted below. We have assumed that 3000 & 3001 belongs to Technical Department whereas 3002 and 3003 are part of sales department. For other details, we believe that users.cfg file below is self explanatory.
+Let's assume that you already have users 3000 (Max), 3001 (Hess), 3002 (Frank) and 3004 (Tim) defined in your Asterisk dialplan. You also have Queue Group 601, 602 and 603 and Ring Groups 501, 502 and 503. You now want to allow these users and ring groups/Queues as a part of your FonB Setup. For this task, you will have to update your `/etc/phoneb/users.cfg` file to something as pasted below. We have assumed that 3000 and 3001 belongs to Technical Department whereas 3002 and 3003 are part of sales department. For other details, we believe that users.cfg file below is self explanatory.
 
 ```
 [3000]                                 
@@ -196,7 +196,7 @@ Extension = 602                        ;Extension you need to dial to call this 
 Type = queue                           ;Type of this context
 Department = Tech_Sales                ;Department this Queue Group belongs to
 
-[603]                                   ;Queue Group as defined in FreePBX/Asterisk
+[603]                                  ;Queue Group as defined in FreePBX/Asterisk
 Name = Queue_Group_3                   ;Name of the Queue Group that will appear in Call History
 Extension = 603                        ;Extension you need to dial to call this Queue Group
 Type = queue                           ;Type of this context
@@ -220,4 +220,23 @@ Extension = 503                        ;Extension you need to dial to call this 
 Department = Sales                     ;Department this Ring Group is part of
 Type = ringgroup                       ;Type of this context
 
+```
+___
+<a name="license-activation"/>
+### 6. License Activation
+FonB is installed by default with trial license. The details of trial limitation can be found at our website download page. If you have purchased any of the license, you will have to follow the given steps to activate these licenses.
+
+First stop FonB Service using:
+```
+service phoneb stop
+```
+
+Now run FonB manually without service using license activation switch:
+```
+/usr/local/src/PhoneB/bin/./phoneb --activate XXXX-XXXX-XXXX-XXXX
+```
+
+where xxxx-xxxx-xxxx-xxxx is the license key you've received in your email. For multiple licenses, press ctrl+c to stop FonB and repeat last step with other license keys you have, one by one. Once done, kill the process by pressing ctrl+c and then start FonB Service using:
+```
+service phoneb start
 ```
