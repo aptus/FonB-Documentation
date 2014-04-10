@@ -21,6 +21,8 @@
   4.1. [Script Prompts](#script-prompts)
 
   4.2. [Options/Switches](#options-switches)
+  
+5.  [Creating/Editing Users](#users.cfg)
 ___
 <a name="gettingstarted"/>
 ### 1. Getting Started
@@ -115,3 +117,107 @@ Here is the list of these prompts:
 * **-c /path/where/php/will/be/compiled** or **--prefix=/path/where/php/will/be/compiled** Downloads and compiles php with FonB specific requirements.
 * **-v** or **--version** Show installation script version
 * **-f** or **--freepbx** Install Freepbx module
+
+<a name="#users.cfg"/>
+### 5. Creating/Editing Users
+Let's assume that you already have users 3000 (Max), 3001 (Hess), 3002 (Frank) and 3004 (Tim) defined in your Asterisk dialplan. You also have Queue Group 601, 602 and 603 and Ring Groups 501, 502 and 503. You will have to update your `/etc/phoneb/users.cfg` file to make it look like file pasted below. We have assumed that 3000 & 3001 belongs to Technical Department whereas 3002 and 3003 are part of sales department. For other details, we believe that users.cfg file below is self explanatory.
+
+```
+[3000]                                 
+Extension=3000                         ;Extension
+Terminal=SIP/3000                      ;Extension type as defined in Extensions.conf
+Context=from-internal                  ;Extension context
+Name=Max                               ;Name of the user
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended,  easier to use in IP Phones)
+Language=en                            ;Language
+DID=4547733                            ;Internal DID for Asterisk CLID Lookup 
+Department=Technical                   ;Department Name
+Spy=all                                ;Listen to all Other Calls
+Company=aptus                          ;Company Name, important for Multi Tenant Environment
+;Type=deleted                          ;Will be used when extension is deleted and you want to keep the data without login
+Queue=601                              ;Queue Groups this extension is part of
+RingGroups=501                         ;Ring Groups this extension is part of
+
+
+[3001]
+Extension=3001                         ;Extension
+Terminal=SIP/3001                      ;Extension type as defined in Extensions.conf
+Context=from-internal                  ;Extension context
+Name=Hess                              ;Name of the user
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, easier to use in IP Phones)
+Language=en                            ;Language
+DID=4547744                            ;Internal DID for Asterisk CLID Lookup 
+Department=Development                 ;Department Name
+Spy=Technical                          ;Listen to Calls by Technical Department only
+Company=aptus                          ;Company Name, important for Multi Tenant Environment
+;Type=deleted                          ;Will be used when extension is deleted and you want to keep the data without login
+Queue=601,602                          ;Queue Groups this extension is part of
+RingGroups=501,502                     ;Ring Groups this extension is part of
+
+[3002]
+Extension=3002                         ;Extension
+Terminal=SIP/3002                      ;Extension type as defined in Extensions.conf
+Context=from-internal                  ;Extension context
+Name=Frank                             ;Name of the user
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, easier to use in IP Phones)
+Language=en                            ;Language
+DID=4547755                            ;Internal DID for Asterisk CLID Lookup 
+Department=Sales                       ;Department Name
+Spy=all                                ;Listen to all Other Calls
+Company=aptus                          ;Company Name, important for Multi Tenant Environment
+;Type=deleted                          ;Will be used when extension is deleted and you want to keep the data without login
+Queue=603                              ;Queue Groups this extension is part of
+RingGroups=503                         ;Ring Groups this extension is part of
+
+[3003]
+Extension=3003                         ;Extension
+Terminal=SIP/3003                      ;Extension type as defined in Extensions.conf
+Context=from-internal                  ;Extension context
+Name=Tim                               ;Name of the user
+Password=3333                          ;Password for Weblogin (Special Characters not supported, Numerics Recommended, easier to use in IP Phones)
+Language=en                            ;Language
+DID=4547766                            ;Internal DID for Asterisk CLID Lookup 
+Department=Sales                       ;Department Name
+Spy=Sales                              ;Can Listen to Calls by Sales Department only
+Company=aptus                          ;Company Name, important for Multi Tenant Environment
+;Type=deleted                          ;Will be used when extension is deleted and you want to keep the data without login
+Queue=602,603                          ;Queue Groups this extension is part of
+RingGroups=502,503                     ;Ring Groups this extension is part of
+
+[601]                                  ;Queue Group as defined in FreePBX/Asterisk
+Name = Queue_Group_1                   ;Name of the Queue Group that will appear in Call History
+Extension = 601                        ;Extension you need to dial to call this Queue Group
+Type = queue                           ;Type of this context
+Department = Tech                      ;Department this Queue Group belongs to
+
+[602]                                  ;Queue Group as defined in FreePBX/Asterisk
+Name = Queue_Group_2                   ;Name of the Queue Group that will appear in Call History
+Extension = 602                        ;Extension you need to dial to call this Queue Group
+Type = queue                           ;Type of this context
+Department = Tech_Sales                ;Department this Queue Group belongs to
+
+[603]                                   ;Queue Group as defined in FreePBX/Asterisk
+Name = Queue_Group_3                   ;Name of the Queue Group that will appear in Call History
+Extension = 603                        ;Extension you need to dial to call this Queue Group
+Type = queue                           ;Type of this context
+Department = Sales                     ;Department this Queue Group belongs to
+
+[501]
+Name = Tech_Room                       ;Name of this Ring Group
+Extension = 501                        ;Extension you need to dial to call this ring group
+Department = Technical                 ;Department this Ring Group is part of
+Type = ringgroup                       ;Type of this context
+
+[502]
+Name = Tech_Sales_Rooms                ;Name of this Ring Group
+Extension = 502                        ;Extension you need to dial to call this ring group
+Department = Technical_and_Sales       ;Department this Ring Group is part of
+Type = ringgroup                       ;Type of this context
+
+[503]
+Name = Sales_Room                      ;Name of this Ring Group
+Extension = 503                        ;Extension you need to dial to call this ring group
+Department = Sales                     ;Department this Ring Group is part of
+Type = ringgroup                       ;Type of this context
+
+```
