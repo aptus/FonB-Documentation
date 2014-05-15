@@ -284,6 +284,12 @@ permit=10.0.8.0/255.255.255.255
 permit=127.0.0.1/255.255.255.0
 
 ```
+Also, under your manager.conf user (admin), make sure following permissions are there for read and write. You can also replace them with 'all':
+
+```
+read = system,call,log,verbose,command,agent,user,config,command,dtmf,reporting,cdr,dialplan,originate
+write = system,call,log,verbose,command,agent,user,config,command,dtmf,reporting,cdr,dialplan,originate
+```
 <a name="create-fonb-mysql"/>
 ####5.6. Create FonB MySQL Database
 FonB uses MySQL Database to store all of its information. At this stage, you need to create a database to be used by FonB. Please note that Special Characters are not supported in current release of FonB (due to certain restrictions in PHP Configuration Syntax).
