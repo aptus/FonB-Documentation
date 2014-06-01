@@ -4,7 +4,7 @@
 4. Fill the XML Service section as under:
 
 XML Directory Service Name: FonB
-XML Directory Service URL:	http://10.0.8.6:8080/xml/en/Cisco/menu.xml?user=7711
+XML Directory Service URL:	http://10.0.8.6:8080/xml/en/Cisco/menu.xml
 (Assuming  10.0.8.6 is your system IP and 8080 is the configured port).
 
 5. Press Submit All Changes.
