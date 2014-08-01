@@ -45,7 +45,7 @@ Elastix & AsteriskNOW users will need to compile PHP in order to run FonB. The s
 
 Download PHP Source in the directory '/usr/src' using command:
 ```
-wget http://www.php.net/get/php-5.4.17.tar.gz/from/ar2.php.net/mirror
+wget http://aptus.com/install/php-5.4.23.tar.gz
 ```
 ####2. Decompress The Source:
 
