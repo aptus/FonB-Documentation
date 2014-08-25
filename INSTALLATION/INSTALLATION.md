@@ -118,7 +118,6 @@ Here is the list of these prompts:
 * **-p php-cgi** or **--php=php-cgi** Validates php requirements for FonB. Expects php-cgi path as argument.
 * **-c /path/where/php/will/be/compiled** or **--prefix=/path/where/php/will/be/compiled** Downloads and compiles php with FonB specific requirements.
 * **-v** or **--version** Show installation script version
-* **-f** or **--freepbx** Install Freepbx module
 
 <a name="users-cfg"/>
 ### 5. Creating/Editing Users
