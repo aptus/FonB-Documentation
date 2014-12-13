@@ -68,7 +68,7 @@ yum install libxml2 libxml2-devel autoconf automake libtool re2c flex bison open
 Navigate to the decompressed directory for PHP using `cd php-5.4.17` and perform configure step using:
 
 ```
-./configure --prefix=/usr/local/php --with-mysql --with-openssl
+./configure --prefix=/usr/local/php --with-mysql --with-openssl --with-curl --with-curl-devel --with-mysqli
 ```
 
 ####5. Compilation & Installation:
