@@ -1,4 +1,4 @@
-FonB Installation Guide for FreePBX Users
+FonB Installation Guide for Elastix Users
 ==================
 ===
 ### Table of Contents
