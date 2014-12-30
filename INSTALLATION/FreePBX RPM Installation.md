@@ -5,28 +5,35 @@ FonB Installation Guide for FreePBX Users
 1. [Getting Started](#gettingstarted)
 
   1.1. [FonB Solution Architecture](#solution-architecture)
+  
+  1.2. [FonB Python Script (Deprecated)](#install-script)
+  
+  1.3. [FonB RPM For Elastix](#elastix-rpm)
 
 2. [System Requirements](#systemrequirements)
 
   2.1. [OS Requirements](#osrequirements)
 
-  2.2. [Asterisk Version Support](#asteriskversion)
-
-  2.3. [Browser Requirement](#browserrequirement)
+  2.2. [Browser Requirement](#browserrequirement)
    
-3. [Installation Script - An Overview](#installation-script)
+3. [Installation Script - An Overview](#rpm-installation)
 
-  3.1. [Requirements](#requirements)
-   
-4. [Installation Procedure](#installation-procedure)
-
-  4.1. [Script Prompts](#script-prompts)
-
-  4.2. [Options/Switches](#options-switches)
+  3.1. [Requirements](#download)
   
-5.  [Creating/Editing Users](#users-cfg)
-
-6.  [License Activation](#license-activation)
+  3.2. [Install FonB RPM](#install-rpm)
+  
+  3.3. [Get Your FonB License Key](#get-license)
+  
+  3.4. [Create Elastix Users](#create-elastix-users)
+  
+  3.5. [Open FonB Tab In Elastix](#open-fonb-tab)
+  
+  3.6. [Activate Your License Key](#activate-license)
+  
+  3.7. [Define FonB Users](#define-fonb-users)
+  
+  3.8. [Login](#login)
+  
 ___
 <a name="gettingstarted"/>
 ### 1. Getting Started
@@ -44,7 +51,7 @@ User is supposed to inform FonB about these files in 3 configuration files, i.e.
 Previous builds of FonB Install Script were all Python based script that could install FonB on Elastix Systems. There was however a part where user had to logon to backend system and define/alter couple of files in CLI mode. Besides, any modification in FonB Administration required CLI access of the system which was confusing and sometimes not desirable by many users.
 
 <a name="elastix-rpm"/>
-####1.2. FonB RPM for Elastix
+####1.3. FonB RPM for Elastix
 The newest FonB RPM for Elastix will further stabilize the application as a whole as well as provide GUI running on a separate port independent of Elastix.
 
 
