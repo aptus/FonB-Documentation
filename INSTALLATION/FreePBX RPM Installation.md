@@ -37,7 +37,7 @@ FonB Installation Guide for FreePBX Users
   3.9. [Login With User](#login-user)
 ___
 
-[Please Note that FreePBX 12 is not Supported Yet!]
+### [Please Note that FreePBX 12 is not Supported Yet!]
 <a name="gettingstarted"/>
 ### 1. Getting Started
 FonB is web based software addon to provide additional features to your Asterisk Server. These features include Phonebook for Asterisk, Highrise CRM Integration, FonB XML App for IP Phones, Call History XML App for IP Phones, Active Call Panel, Call Switching, Number Lookup, Number Rewrites etc. This document provides instructions to download, install and configure FonB from scratch. It is assumed that you have a fully functional Asterisk Server running in environment where FonB is to be installed. For integration with Highrise, it's assumed that you have a working Highrise CRM account to be integrated with Aptus FonB. Please be noted that this document is expected to be modified with time based on user input we are going to receive. Please feel free to report any issues in support forum.
