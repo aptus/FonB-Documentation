@@ -36,6 +36,8 @@ FonB Installation Guide for FreePBX Users
   
   3.9. [Login With User](#login-user)
 ___
+
+[Please Note that FreePBX 12 is not Supported Yet!]
 <a name="gettingstarted"/>
 ### 1. Getting Started
 FonB is web based software addon to provide additional features to your Asterisk Server. These features include Phonebook for Asterisk, Highrise CRM Integration, FonB XML App for IP Phones, Call History XML App for IP Phones, Active Call Panel, Call Switching, Number Lookup, Number Rewrites etc. This document provides instructions to download, install and configure FonB from scratch. It is assumed that you have a fully functional Asterisk Server running in environment where FonB is to be installed. For integration with Highrise, it's assumed that you have a working Highrise CRM account to be integrated with Aptus FonB. Please be noted that this document is expected to be modified with time based on user input we are going to receive. Please feel free to report any issues in support forum.
@@ -74,13 +76,15 @@ ___
 
 <a name="download"/>
 #### 3.1. Download FonB In Your YUM Repo
-Go to directory /etc/yum/repos.d using cd /etc/yum/repos.d and download FonB. For x64 systems use:
+Go to directory /etc/yum.repos.d using cd /etc/yum.repos.d and download FonB. For x64 systems use:
 ```
-wget http://repo.aptus.com/freePBX/x86_64/aptus_64.repo
+cd /etc/yum.repos.d/
+wget http://repo.aptus.com/freepbx/11/x86_64/aptus_64.repo
 ```
 For x32 systems, use:
 ```
-wget http://repo.aptus.com/freePBX/i386/aptus.repo
+cd /etc/yum.repos.d/
+wget http://repo.aptus.com/freepbx/11/i386/aptus.repo
 ```
 
 <a name="install-rpm"/>
