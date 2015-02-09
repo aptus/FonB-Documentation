@@ -73,12 +73,14 @@ ___
 
 <a name="download"/>
 #### 3.1. Download FonB In Your YUM Repo
-Go to directory /etc/yum/repos.d using cd /etc/yum/repos.d and download FonB. For x64 systems use:
+Go to directory /etc/yum.repos.d using cd /etc/yum.repos.d and download FonB. For x64 systems use:
 ```
+cd /etc/yum.repos.d/
 wget http://repo.aptus.com/elastix/x86_64/aptus_64.repo
 ```
 For x32 systems, use:
 ```
+cd /etc/yum.repos.d/
 wget http://repo.aptus.com/elastix/i386/aptus.repo
 ```
 
