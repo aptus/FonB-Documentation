@@ -64,7 +64,7 @@ ___
 FonB can be installed on any standard x86/x86_64 based hardware system. We recommend system memory to be more than 512MB.
 <a name="osrequirements"/>
 ####2.1. OS Requirements
-In order to install FonB RPM for FreePBX, user must have at least FreePBX 2.4 or higher.
+In order to install FonB RPM for FreePBX, user must have at least FreePBX 2.4 up to 11. FreePBX 12 is not supported yet.
 
 ####2.2. Browser Requirement
 Mozilla Firefox 6, Mozilla Firefox 5, Google Chrome 14, Safari 5, Opera 11
