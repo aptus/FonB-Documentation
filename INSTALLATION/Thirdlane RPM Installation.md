@@ -6,9 +6,7 @@ FonB Installation Guide for Thirdlane Users
 
   1.1. [FonB Solution Architecture](#solution-architecture)
   
-  1.2. [FonB Python Script (Deprecated)](#install-script)
-  
-  1.3. [FonB RPM For Thirdlane](#thirdlane-rpm)
+  1.2. [FonB RPM For Thirdlane](#thirdlane-rpm)
 
 2. [System Requirements](#systemrequirements)
 
@@ -46,10 +44,6 @@ FonB communicates with MySQL for two reasons, first to handle its own records in
 
 User is supposed to inform FonB about these files in 3 configuration files, i.e. phoneb.cfg, users.cfg and php.ini (within FonB Installation directory), as explained in this document, section 5.
 
-<a name="install-script"/>
-####1.2. FonB Python Script (Deprecated)
-Previous builds of FonB Install Script were all Python based script that could install FonB on Thirdlane Systems. There was however a part where user had to logon to backend system and define/alter couple of files in CLI mode. Besides, any modification in FonB Administration required CLI access of the system which was confusing and sometimes not desirable by many users.
-
 <a name="thirdlane-rpm"/>
 ####1.3. FonB RPM for 
 The newest FonB RPM for Thirdlane will further stabilize the application as a whole as well as provide GUI running on a separate port independent of Thirdlane.
@@ -58,10 +52,10 @@ The newest FonB RPM for Thirdlane will further stabilize the application as a wh
 ___
 <a name="systemrequirements"/>
 ### 2. System Requirements
-FonB can be installed on any standard x86/x86_64 based hardware system. We recommend system memory to be more than 512MB.
+FonB can be installed on any standard x86_64 based hardware system. We recommend system memory to be more than 512MB.
 <a name="osrequirements"/>
 ####2.1. OS Requirements
-In order to install FonB RPM for Thirdlane, user must have at least Thirdlane 2.4 or higher.
+In order to install FonB RPM for Thirdlane, user must have at least Thirdlane Single Tenant or Multi Tenants.
 
 ####2.2. Browser Requirement
 Mozilla Firefox 6, Mozilla Firefox 5, Google Chrome 14, Safari 5, Opera 11
@@ -76,7 +70,7 @@ ___
 Go to directory /etc/yum.repos.d using cd /etc/yum.repos.d and download FonB. For x64 systems use:
 ```
 cd /etc/yum.repos.d/
-wget http://repo.aptus.com/thirdlanehirdlane/x86_64/aptus_64.repo
+wget http://repo.aptus.com/thirdlane/x86_64/aptus_64.repo
 ```
 
 
