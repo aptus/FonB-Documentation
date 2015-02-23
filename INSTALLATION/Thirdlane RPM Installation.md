@@ -45,7 +45,7 @@ FonB communicates with MySQL for two reasons, first to handle its own records in
 User is supposed to inform FonB about these files in 3 configuration files, i.e. phoneb.cfg, users.cfg and php.ini (within FonB Installation directory), as explained in this document, section 5.
 
 <a name="thirdlane-rpm"/>
-####1.3. FonB RPM for 
+####1.2. FonB RPM for Thirdlane 
 The newest FonB RPM for Thirdlane will further stabilize the application as a whole as well as provide GUI running on a separate port independent of Thirdlane.
 
 
