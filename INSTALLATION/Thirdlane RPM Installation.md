@@ -46,7 +46,6 @@ FonB communicates with MySQL for two reasons, first to handle its own records in
 ####1.2. FonB RPM for Thirdlane 
 The newest FonB RPM for Thirdlane will further stabilize the application as a whole as well as provide GUI running on a separate port independent of Thirdlane.
 
-
 ___
 <a name="systemrequirements"/>
 ### 2. System Requirements
