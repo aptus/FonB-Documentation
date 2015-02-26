@@ -28,11 +28,13 @@ FonB Installation Guide for Elastix Users
   
   3.5. [Open FonB Tab In Elastix](#open-fonb-tab)
   
-  3.6. [Activate Your License Key](#activate-license)
+  3.6. [Accessing FonB out of Elastix tab](#access-fonb)
+   
+  3.7. [Activate Your License Key](#activate-license)
   
-  3.7. [Define FonB Users](#define-fonb-users)
+  3.8. [Define FonB Users](#define-fonb-users)
   
-  3.8. [Login](#login)
+  3.9. [Login](#login)
   
 ___
 <a name="gettingstarted"/>
@@ -105,16 +107,29 @@ Go to `System>Users` in Elastix Web UI and create new users with extension assoc
 #### 3.5. Open FonB Tab In Elastix
 For Elastix Admins, FonB tab is under the Extras (right most drop down menu) within Elastix. For regular users, it’s visible on Elastix Top Menu. Once you click FonB, you will be taken straight into your FonB User Portal without any login. This happens when you’ve associated your Extension with logged in user. You will see a login page only if you have no extensions in FonB OR there’s no extension associated with Logged in user.
 
+<a name="access-fonb"/>
+#### 3.6. Accessing FonB out of Elastix tab
+To access FonB outside of Elastix tab, open your broswer and simply type your IP address followed by (:8889) like
+````
+<IP_ADDRESS>:8889
+````
+This will take you straight to user login page, if you wish to go to Admin login, simply click the link on the top right of your broswer page (Admin Portal).
+Please note that you will need Admin password to access the Admin page, you can find your password by typing the following command in your Elastix's CLI:
+````
+grep AdminPassword /etc/phoneb/phoneb.cfg
+````
+Copy & paste the password, and you're ready to go.
+
 <a name="activate-license"/>
-#### 3.6. Activate Your License
+#### 3.7. Activate Your License
 Login with Admin credentials to your Elastix Web UI. Navigate to FonB tab > Licenses and Apply the Activation Key by entering the key followed by Activation Button.
 
 <a name="define-fonb-users"/>
-#### 3.7. Define Users In FonB
+#### 3.8. Define Users In FonB
 Go to Users Tab in Admin Portal and define your users. If you already have users in Elastix, you just need to add Password for them as well as set the type of the user (i.e. Web, Mobile, Web + Mobile).
 
 <a name="login"/>
-#### 3.8. Login
+#### 3.9. Login
 You can now login with any defined user in FonB with extension associated in `Elastix>System>Users`.
 
 
