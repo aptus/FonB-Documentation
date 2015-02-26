@@ -36,6 +36,7 @@ FonB Installation Guide for Elastix Users
   
   3.9. [Login](#login)
   
+  3.10. [User Manual](#user-manual)
 ___
 <a name="gettingstarted"/>
 ### 1. Getting Started
@@ -132,4 +133,6 @@ Go to Users Tab in Admin Portal and define your users. If you already have users
 #### 3.9. Login
 You can now login with any defined user in FonB with extension associated in `Elastix>System>Users`.
 
-
+<a name="user-manual">
+#### 3.10. User Manual
+Please download and read this manual (www.aptus.com/download/ElastixGuide.pdf) for more information how to use FonB.
