@@ -24,13 +24,15 @@ FonB Installation Guide for Thirdlane Users
   
   3.4. [Create Thirdlane Users](#create-thirdlane-users)
   
-  3.5. [Open FonB Tab In Thirdlane](#open-fonb-tab)
+  3.5. [Accessing FonB](#access-fonb)
   
-  3.6. [Activate Your License Key](#activate-license)
+  3.6. [Open FonB Tab In Thirdlane](#open-fonb-tab)
   
-  3.7. [Define FonB Users](#define-fonb-users)
+  3.7. [Activate Your License Key](#activate-license)
   
-  3.8. [Login](#login)
+  3.8. [Define FonB Users](#define-fonb-users)
+  
+  3.9. [Login](#login)
   
 ___
 <a name="gettingstarted"/>
@@ -87,16 +89,28 @@ Go to Aptus Website (www.aptus.com/download.html) and register yourself to get a
 #### 3.4. Create Thirdlane Users
 Go to `Extensions and Contacts>User Extensions` in Thirdlane Web UI and create new users with extension associated with them. Any user with type Admin will be able to see FonB Admin Portal with Backend Settings whereas anyone with type Operator or Extension will see only User Panel.
 
+<a name="access-fonb"/>
+#### 3.5 Accessing FonB
+After you have successfully installed FonB and obtained the license from (www.aptus.com/download.html), it's time to get started with FonB, please note that FonB runs on port (8889), therefore, to access FonB, simply open your browser and type the IP address where FonB is installed followed by :8889 like
+````
+<IP_ADDRESS>:8889
+````
+You will be redirected to license page, after you insert your license and activate FonB, you will see in the right corner (Admin Portal), clicking that link will redirect you to Admin portal, the password for the Admin portal can be obtained by typing this command in your server's CLI:
+````
+grep AdminPassword /etc/phoneb/phoneb.cfg
+````
+Copy paste the password, and you're ready to go.
+
 <a name="activate-license"/>
-#### 3.5. Activate Your License
+#### 3.6. Activate Your License
 Login with Admin credentials to FonB Admin Portal. Navigate to Licenses and Apply the Activation Key by entering the key followed by Activation Button.
 
 <a name="define-fonb-users"/>
-#### 3.6. Define Users In FonB
+#### 3.7. Define Users In FonB
 Go to Users Tab in Admin Portal and define your users. If you already have users in Thirdlane, you just need to add Password for them as well as set the type of the user (i.e. Web, Mobile, Web + Mobile).
 
 <a name="login"/>
-#### 3.7. Login
-You can now login with any defined user in FonB with extension associated in `Thirdlane>Extensions and Contacts>User Extensions`.
+#### 3.8. Login
+You can now login with any defined user in FonB with extension associated in `Thirdlane>Extensions and Contacts>User Extensions`. Make sure you set extension password in the Admin portal in order to be able to login to FonB.
 
 
