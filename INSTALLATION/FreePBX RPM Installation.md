@@ -35,6 +35,8 @@ FonB Installation Guide for FreePBX Users
   3.8. [Define FonB Users](#define-fonb-users)
   
   3.9. [Login With User](#login-user)
+  
+  3.10. [CRM Integration](#crmintegration)
 ___
 
 ### [Please Note that FreePBX 12 is not Supported Yet!]
@@ -124,6 +126,20 @@ Go to Users Tab in Admin Portal and define your users. If you already have users
 #### 3.9. Login With User
 Now navigate back to <IP>:8889/login and use your credentials you created in last step to login. Start using FonB !
 
+<a name="crmintegration">
+### 3.10. CRM Integration
+The current Release of FonB support three CRM Platforms:
+<a name="salesforcecrm">
+### 3.10.1. Salesforce CRM
+To integrate FonB with Salesforce CRM, first you need to perform some configuration on Salesforce to allow FonB to connect to it.
+First Create new application, give it any common name like FonB_Integration, set these permissions on your app you created:
+* Access and manage your data (api)
+* Full access (full)
+* Perform requests on your behalf at any time (refresh_token, offline_access)
 
+After that you need to set the redirect URL, please use the following: https://FonBserverIP:7717/salesforce/oauth_callback.php
+Please note that FonB on HTTPS (PORT 7717) runs only to support salesforce.
+After you perform all the above steps, please login to FonB using one of your extensions, navigate to Settings>Contacts page and enter the required information on salesforce Section then press Verify and Sync. a pop-up window will appear asking you to login to your salesforce account, please do so and the window will automatically close after the verification complete.
+For further operational details, please use FonB Technical Guide.
 
 
