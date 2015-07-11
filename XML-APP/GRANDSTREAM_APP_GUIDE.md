@@ -11,12 +11,14 @@
 6. The field **Phonebook XML Server Path** is a bit tricky part of Grandstream XML Phonebook. The Syntax for this path is:
 
 ```
-http://[Server Address]/[Path to XML App]?user=[Username]&pass=[Password]&PageSize=[Phone Page Size]&abc=
+http://[Server Address]:[Listening Port]/[Path to XML App]?user=[Username]&pass=[Password]&PageSize=[Phone Page Size]&abc=
 ```
 
 where:
 
 `[Server Address]`  = Server Hostname or IP Address
+
+`[Listening Port]`  = Port Number that FonB running on
 
 `[Path to XML App]` = Absolute Location for XML File to be used by Grandstream
 
@@ -29,7 +31,7 @@ where:
 The practical example, where we were using GXP2120 Series, our URI was:
 
 ```
-http://10.0.8.6/xml/en/Grandstream/listphonebook.xml?user=7575&pass=3333&PageSize=2000&abc=
+http://10.0.8.6:8889/xml/en/Grandstream/listphonebook.xml?user=7575&pass=3333&PageSize=2000&abc=
 ```
 
 7. Provide the optimal Refresh time under **Phonebook Download Interval** field. We recomend 300 to be a normal value making your Phonebook refresh one every 300 seconds.
