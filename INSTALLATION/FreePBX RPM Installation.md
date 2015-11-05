@@ -37,9 +37,10 @@ FonB Installation Guide for FreePBX Users
   3.9. [Login With User](#login-user)
   
   3.10. [CRM Integration](#crmintegration)
+  
+  3.11. [Important Note for FREEPBX12 Users] (#freepbx12users)
 ___
 
-### [Please Note that FreePBX 12 is not Supported Yet!]
 <a name="gettingstarted"/>
 ### 1. Getting Started
 FonB is web based software addon to provide additional features to your Asterisk Server. These features include Phonebook for Asterisk, Highrise CRM Integration, FonB XML App for IP Phones, Call History XML App for IP Phones, Active Call Panel, Call Switching, Number Lookup, Number Rewrites etc. This document provides instructions to download, install and configure FonB from scratch. It is assumed that you have a fully functional Asterisk Server running in environment where FonB is to be installed. For integration with Highrise, it's assumed that you have a working Highrise CRM account to be integrated with Aptus FonB. Please be noted that this document is expected to be modified with time based on user input we are going to receive. Please feel free to report any issues in support forum.
@@ -142,4 +143,7 @@ Please note that FonB on HTTPS (PORT 7717) runs only to support salesforce.
 After you perform all the above steps, please login to FonB using one of your extensions, navigate to Settings>Contacts page and enter the required information on salesforce Section then press Verify and Sync. a pop-up window will appear asking you to login to your salesforce account, please do so and the window will automatically close after the verification complete.
 For further operational details, please use FonB Technical Guide.
 
-
+<a name="freepbx12users">
+### 3.11. Important Note for FREEPBX 12 Users
+FonB can work with FreePBX 12, however, you will need to disable CEL table recording from FreePBX web interface,
+to disable CEL reporting, simply login to your FREEPBX web interface, navigate to Advanced Settings, scroll to CEL Reporting or CEL recording, change it to disabled, save your settings, and you are good to go.
